@@ -20,7 +20,10 @@
               "apps/cinema-web/src/favicon.ico",
               "apps/cinema-web/src/assets"
             ],
-            "styles": ["apps/cinema-web/src/styles.css"],
+            "styles": [
+              "apps/cinema-web/src/styles.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+            ],
             "scripts": []
           },
           "configurations": {
