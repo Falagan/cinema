@@ -54,13 +54,43 @@
               ],
               "outputHashing": "all"
             },
+            "preproduction": {
+              "fileReplacements": [
+                {
+                  "replace": "apps/cinema-web/src/environments/environment.ts",
+                  "with": "apps/cinema-web/src/environments/environment.pre.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                }
+              ]
+            },
             "development": {
               "buildOptimizer": false,
               "optimization": false,
               "vendorChunk": true,
               "extractLicenses": false,
               "sourceMap": true,
-              "namedChunks": true
+              "namedChunks": true,
+              "fileReplacements": [
+                {
+                  "replace": "apps/cinema-web/src/environments/environment.ts",
+                  "with": "apps/cinema-web/src/environments/environment.dev.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -70,6 +100,9 @@
           "configurations": {
             "production": {
               "browserTarget": "cinema-web:build:production"
+            },
+            "preproduction": {
+              "browserTarget": "cinema-web:build:preproduction"
             },
             "development": {
               "browserTarget": "cinema-web:build:development"
