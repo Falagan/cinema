@@ -1,5 +1,5 @@
-export interface UserResponse {
-  id:string;
+export interface User {
+  id?: string;
   email: string;
   password: string;
   name: string;
