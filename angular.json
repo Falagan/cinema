@@ -131,6 +131,29 @@
       },
       "tags": [],
       "implicitDependencies": ["cinema-web"]
+    },
+    "lib-cinema": {
+      "root": "libs/lib-cinema",
+      "sourceRoot": "libs/lib-cinema/src",
+      "projectType": "library",
+      "architect": {
+        "lint": {
+          "builder": "@nrwl/linter:eslint",
+          "outputs": ["{options.outputFile}"],
+          "options": {
+            "lintFilePatterns": ["libs/lib-cinema/**/*.ts"]
+          }
+        },
+        "test": {
+          "builder": "@nrwl/jest:jest",
+          "outputs": ["coverage/libs/lib-cinema"],
+          "options": {
+            "jestConfig": "libs/lib-cinema/jest.config.js",
+            "passWithNoTests": true
+          }
+        }
+      },
+      "tags": []
     }
   }
 }
