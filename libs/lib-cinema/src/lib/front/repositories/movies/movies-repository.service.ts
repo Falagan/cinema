@@ -2,9 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse, CommonRoutes, FindAllResponse, Movie, MovieResponse, MovieRoutes } from '@cinema/lib-cinema';
 import { Observable } from 'rxjs';
-import { environment } from './../../../../../../apps/cinema-web/src/environments/environment.prod';
-import { DeleteResponse } from './../../api/responses/common/delete.response';
-import { DeleteMany } from './../models/common/delete-many';
+import { environment } from './../../../../../../../apps/cinema-web/src/environments/environment.prod';
+import { DeleteResponse } from './../../../api/responses/common/delete.response';
+import { DeleteMany } from './../../models/common/delete-many';
 
 @Injectable({
   providedIn: 'root'
