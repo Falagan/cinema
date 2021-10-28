@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { ApiResponse, AuthRoutes, Login, LoginResponse } from '@cinema/lib-cinema';
+import { environment } from '@cinema/web/envs';
 import { Observable } from 'rxjs';
-import { environment } from './../../../../../../../apps/cinema-web/src/environments/environment.prod';
 
 @Injectable({
   providedIn: 'root'

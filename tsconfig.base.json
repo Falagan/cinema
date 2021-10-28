@@ -15,7 +15,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@cinema/lib-cinema": ["libs/lib-cinema/src/index.ts"]
+      "@cinema/lib-cinema": ["libs/lib-cinema/src/index.ts"],
+      "@cinema/web/envs": ["apps/cinema-web/src/environments/environment"],
     }
   },
   "exclude": ["node_modules", "tmp"]
