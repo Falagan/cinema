@@ -12,6 +12,6 @@ export class AuthRepository {
   constructor(private httpClient: HttpClient) {}
 
   public login(credentials: Login): Observable<ApiResponse<LoginResponse>> {
-    return this.httpClient.post<ApiResponse<LoginResponse>>(`${AuthRoutes.PRE}${AuthRoutes.LOGIN}`, credentials);
+    return this.httpClient.post<ApiResponse<LoginResponse>>(`${this.apiUrl}${AuthRoutes.PRE}${AuthRoutes.LOGIN}`, credentials);
   }
 }
