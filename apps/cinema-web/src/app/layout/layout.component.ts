@@ -1,10 +1,10 @@
-import { Component, OnDestroy, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GlobalStateService } from '../common/global-state/global-state.service';
 import { GlobalStateProps } from '../common/global-state/store/global-initial.state';
 
 @Component({
-  selector: 'app-layout',
+  selector: 'cinema-layout',
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.css']
 })

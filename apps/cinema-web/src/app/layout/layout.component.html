@@ -1,7 +1,7 @@
 <mat-drawer-container class="h-100 w-100" autosize>
   <!-- Side Menu -->
   <mat-drawer mode="side" disableClose="true" [opened]="sideMenuOpen$ | async">
-      SideNav
+      <cinema-sidenav (closeSideMenu)="onToggleSideMenu()"></cinema-sidenav>
   </mat-drawer>
   <!-- Main Content Container -->
   <div class="h-100">

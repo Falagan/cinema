@@ -1,9 +1,9 @@
-export interface _Menu {
+export interface Menu {
   id: string;
-  items: _MenuItem[];
+  items: MenuItem[];
 }
 
-export interface _MenuItem {
+export interface MenuItem {
   id: string;
   label: string;
   link: string;

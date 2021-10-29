@@ -1,0 +1,32 @@
+<div class="container-fluid">
+  <div class="row align-items-center">
+    <!-- Close button -->
+    <div class="col-12">
+      <div>
+        <button class="position-absolute ml-auto mr-4" mat-icon-button (click)="onCloseSideMenu()">
+          <mat-icon class="icon-size">chevron_left</mat-icon>
+        </button>
+      </div>
+    </div>
+    <!-- Avatar -->
+    <div class="col-12"></div>
+    <!-- Menu Items -->
+    <div class="col-12">
+      <!-- Items -->
+      <ng-container *ngIf="!loading$; else loading">
+        <mat-nav-list>
+          <mat-list-item *ngFor="let item of (menu$ | async)?.items">
+            <a matLine href="...">{{ item.label }}</a>
+            <button mat-icon-button (click)="onNavigateTo(item.link)">
+              <mat-icon>{{ item.icon }}</mat-icon>
+            </button>
+          </mat-list-item>
+        </mat-nav-list>
+      </ng-container>
+      <!-- Loading -->
+      <ng-template #loading>
+
+      </ng-template>
+    </div>
+  </div>
+</div>
