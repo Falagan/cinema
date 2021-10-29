@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit, ViewChild } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GlobalStateService } from '../common/global-state/global-state.service';
 import { GlobalStateProps } from '../common/global-state/store/global-initial.state';
@@ -6,7 +6,8 @@ import { GlobalStateProps } from '../common/global-state/store/global-initial.st
 @Component({
   selector: 'cinema-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.css']
+  styleUrls: ['./layout.component.css'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LayoutComponent implements OnInit {
   @ViewChild('drawer') drawer: any;
