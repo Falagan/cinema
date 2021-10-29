@@ -1,1 +1,13 @@
-<p>card-movie works!</p>
+<mat-card class="card-size w-100">
+  <mat-card-header>
+    <div mat-card-avatar></div>
+    <mat-card-title>{{ movie.title }}</mat-card-title>
+    <mat-card-subtitle>{{ movie.genre }}</mat-card-subtitle>
+  </mat-card-header>
+  <!-- <img class="img-size rounded img-fluid mx-auto d-block" mat-card-image [src]="movie.link" /> -->
+  <mat-card-actions>
+    <div *ngFor="let tag of movie.actors">
+      {{ tag }}
+    </div>
+  </mat-card-actions>
+</mat-card>

@@ -1,8 +1,10 @@
 <div class="container-fluid h-100">
-  <div class="row h-100 align-items-center">
+  <div class="row h-100">
     <!-- Movies list -->
-    <ng-container *ngIf="false; else loading">
-      <div *ngFor="let movie of moviesList$ | async" class="col-4">Cards</div>
+    <ng-container *ngIf="(loading$ | async) === false; else loading">
+      <div *ngFor="let movie of moviesList$ | async" class="col-lg-auto col-12">
+        <cinema-card-movie [movie]="movie"></cinema-card-movie>
+      </div>
     </ng-container>
   </div>
   <!-- Loading  skeleton  -->

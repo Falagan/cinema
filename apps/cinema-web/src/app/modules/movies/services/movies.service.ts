@@ -25,16 +25,14 @@ export class MoviesService extends Store<MoviesState, MoviesStateActions, Movies
           {
             id: 1,
             title: 'Titanic',
-            director: 'John Doe',
-            img: 'https://ih1.redbubble.net/image.1150676617.9942/fposter,small,wall_texture,product,750x1000.jpg',
-            tags: ['barco', 'drama']
+            genre: 'Drama',
+            actors: ['Manolo', 'Jesús']
           },
           {
             id: 1,
             title: 'Jurassic Park',
-            director: 'John Doe',
-            img: 'https://braingamerstore.es/WebRoot/Store19/Shops/10b5e492-53fc-4222-8567-0b2e37dbb48e/5D70/12D8/E660/3A4C/3679/0A48/3548/C90A/CARTEL_JURASSIC_PARK.jpg',
-            tags: ['dinosaurio', 'drama']
+            genre: 'Drama',
+            actors: ['Loli', 'Bruce']
           }
         ],
         singleProp: true
