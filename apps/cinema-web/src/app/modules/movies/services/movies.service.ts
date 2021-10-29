@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { MoviesRepository } from '@cinema/lib-cinema';
 import { Action, Store } from '@global/lib-store';
 import { MoviesInitialState, MoviesStateProps } from '../store/movies-initial.state';
 import { MoviesStateActions } from '../store/movies.actions';
@@ -9,37 +10,25 @@ import { MoviesState } from '../store/movies.state';
   providedIn: 'root'
 })
 export class MoviesService extends Store<MoviesState, MoviesStateActions, MoviesStateProps> {
-  constructor() {
+  constructor(private moviesRepository: MoviesRepository) {
     super(MoviesInitialState, MoviesReducer);
   }
 
   /**
    * Gets all movies filter by query
    */
-  public findAll() {
+  public async findAll() {
     this.loadingState(true);
-    setTimeout(() => {
-      const action: Action<MoviesStateActions> = {
-        type: MoviesStateActions.SET_LIST,
-        payload: [
-          {
-            id: 1,
-            title: 'Titanic',
-            genre: 'Drama',
-            actors: ['Manolo', 'Jesús']
-          },
-          {
-            id: 1,
-            title: 'Jurassic Park',
-            genre: 'Drama',
-            actors: ['Loli', 'Bruce']
-          }
-        ],
-        singleProp: true
-      };
-      this.loadingState(false);
-      this.dispatchPropState(action);
-    }, 4000);
+    const list = await this.moviesRepository.findAll().toPromise();
+    
+    const action: Action<MoviesStateActions> = {
+      type: MoviesStateActions.SET_LIST,
+      payload: list,
+      singleProp: true
+    };
+
+    this.dispatchPropState(action);
+    this.loadingState(false);
   }
 
   /**

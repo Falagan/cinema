@@ -3,7 +3,7 @@ import { GlobalState } from './global.state';
 export const GlobalInitialState: GlobalState = {
   user: null,
   sideMenuItems: [],
-  sideMenuOpen: true
+  sideMenuOpen: false
 };
 
 export enum GlobalStateProps {

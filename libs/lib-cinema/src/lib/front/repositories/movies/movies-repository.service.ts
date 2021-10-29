@@ -16,7 +16,7 @@ export class MoviesRepository {
   constructor(private httpClient: HttpClient) {}
 
   public findAll(): Observable<ApiResponse<FindAllResponse<_Movie>>> {
-    return this.httpClient.get<ApiResponse<FindAllResponse<_Movie>>>(`${this.apiUrl}${MovieRoutes.PRE}`);
+    return this.httpClient.get<ApiResponse<FindAllResponse<_Movie>>>(`${this.apiUrl}/${MovieRoutes.PRE}`);
   }
 
   public create(newMovie: Movie): Observable<ApiResponse<_Movie>> {
