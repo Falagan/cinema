@@ -1,4 +1,4 @@
-export interface UserResponse {
+export interface _User {
   id:string;
   email: string;
   password: string;

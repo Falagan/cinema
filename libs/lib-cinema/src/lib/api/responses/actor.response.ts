@@ -1,4 +1,4 @@
-export interface ActorResponse {
+export interface _Actor {
   id: number;
   first_name: string;
   last_name: string;

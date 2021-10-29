@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ApiResponse, CommonRoutes, FindAllResponse, Movie, MovieResponse, MovieRoutes } from '@cinema/lib-cinema';
+import { ApiResponse, CommonRoutes, FindAllResponse, Movie, MovieRoutes, _Movie } from '@cinema/lib-cinema';
 import { environment } from '@cinema/web/envs';
 import { Observable } from 'rxjs';
 import { DeleteResponse } from './../../../api/responses/common/delete.response';
@@ -14,19 +14,19 @@ export class MoviesRepository {
 
   constructor(private httpClient: HttpClient) {}
 
-  public findAll(): Observable<ApiResponse<FindAllResponse<MovieResponse>>> {
-    return this.httpClient.get<ApiResponse<FindAllResponse<MovieResponse>>>(`${this.apiUrl}${MovieRoutes.PRE}`);
+  public findAll(): Observable<ApiResponse<FindAllResponse<_Movie>>> {
+    return this.httpClient.get<ApiResponse<FindAllResponse<_Movie>>>(`${this.apiUrl}${MovieRoutes.PRE}`);
   }
 
-  public create(newMovie: Movie): Observable<ApiResponse<MovieResponse>> {
-    return this.httpClient.post<ApiResponse<MovieResponse>>(
+  public create(newMovie: Movie): Observable<ApiResponse<_Movie>> {
+    return this.httpClient.post<ApiResponse<_Movie>>(
       `${this.apiUrl}${MovieRoutes.PRE}${CommonRoutes.CREATE}`,
       newMovie
     );
   }
 
-  public update(movieUid: string, updateMovie: Partial<Movie>): Observable<ApiResponse<MovieResponse>> {
-    return this.httpClient.patch<ApiResponse<MovieResponse>>(
+  public update(movieUid: string, updateMovie: Partial<Movie>): Observable<ApiResponse<_Movie>> {
+    return this.httpClient.patch<ApiResponse<_Movie>>(
       `${this.apiUrl}${MovieRoutes.PRE}${CommonRoutes.UPDATE}/${movieUid}`,
       updateMovie
     );

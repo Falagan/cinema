@@ -1,4 +1,4 @@
-export interface CompanyResponse {
+export interface _Company {
   id: number;
   name: string;
   country: string;

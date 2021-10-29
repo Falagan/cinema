@@ -1,4 +1,4 @@
-export interface MovieResponse {
+export interface _Movie {
   id: number;
   title: string;
   poster: string;
