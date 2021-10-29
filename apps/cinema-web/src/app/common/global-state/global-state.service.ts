@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Store } from '@global/lib-store';
-import { User } from '@cinema/lib-cinema';
+import { ApiResponse, ConfigurationsRepositoryService, Menu, User } from '@cinema/lib-cinema';
 import { GlobalInitialState, GlobalStateProps } from './store/global-initial.state';
 import { GlobalStateActions } from './store/global.actions';
 import { GlobalReducer } from './store/global.reducers';
@@ -10,7 +10,7 @@ import { GlobalState } from './store/global.state';
   providedIn: 'root'
 })
 export class GlobalStateService extends Store<GlobalState, GlobalStateActions, GlobalStateProps> {
-  constructor() {
+  constructor(private configurationService: ConfigurationsRepositoryService) {
     super(GlobalInitialState, GlobalReducer);
   }
 
@@ -23,7 +23,17 @@ export class GlobalStateService extends Store<GlobalState, GlobalStateActions, G
     this.dispatchPropState(action);
   }
 
-  public setSideMenuItems(menu: any) {
+  public async setSideMenuItems() {
+    // const menu: ApiResponse<Menu> = await this.configurationService.getAsideMenu().toPromise()
+    const menu = {
+      id: 1,
+      name: 'aside',
+      items: [
+        { label: 'Películas', icon: 'movie', link: '/cinema/movies/list' },
+        { label: 'Actores', icon: 'recent_actors', link: '/cinema/actors/list' },
+        { label: 'Compañías', icon: 'business', link: '/cinema/companies/list' }
+      ]
+    };
     const action: Action<GlobalStateActions> = {
       type: GlobalStateActions.SET_SIDE_MENU,
       payload: menu,

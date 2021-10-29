@@ -9,16 +9,8 @@ import { HomeModule } from './home/home.module';
 
 function loadGlobalConfigutation(globalStateService: GlobalStateService) {
   return () => {
-    const fakeMenu = {
-      id: 1,
-      name: 'aside',
-      items: [
-        { label: 'Películas', icon: 'movie', link: '/cinema/movies/list' },
-        { label: 'Actores', icon: 'recent_actors', link: '/cinema/actors/list' },
-        { label: 'Compañías', icon: 'business', link: '/cinema/companies/list' }
-      ]
-    };
-    globalStateService.setSideMenuItems(fakeMenu);
+    // Aside Menu
+    globalStateService.setSideMenuItems();
   };
 }
 
