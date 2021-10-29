@@ -1,29 +1,25 @@
 <div class="container-fluid h-100 sidenav-container">
   <!-- Close button -->
-  <div class="row align-items-center h-100">
-    <!-- Close button -->
+  <div class="row h-100">
     <div class="col-12">
-      <div class="position-absolute close-button-container">
-        <button mat-icon-button (click)="onCloseSideMenu()">
+      <!-- Close button -->
+      <div>
+        <button mat-icon-button class="close-button-position" (click)="onCloseSideMenu()">
           <mat-icon class="icon-size">chevron_left</mat-icon>
         </button>
       </div>
-    </div>
-    <!-- Avatar -->
-    <!-- <div class="col-12"></div> -->
-    <!-- Menu Items -->
-    <div class="col-12 pt-5 h-100">
-      <!-- Items -->
+      <!-- Menu Items -->
       <ng-container *ngIf="true; else loading">
-        <mat-nav-list>
+        <mat-nav-list class="pt-5">
           <mat-list-item *ngFor="let item of (menu$ | async)?.items">
             <button mat-icon-button (click)="onNavigateTo(item.link)">
-              <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>{{ item.label }}
+              <mat-icon class="menu-icon">{{ item.icon }}</mat-icon
+              >{{ item.label }}
             </button>
           </mat-list-item>
         </mat-nav-list>
       </ng-container>
-      <!-- Loading -->
+      <!-- Loading Menu -->
       <ng-template #loading>
         <cinema-block-template [text]="'cineming...'"></cinema-block-template>
       </ng-template>

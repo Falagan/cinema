@@ -6,11 +6,12 @@
   font-size: 30px;
 }
 
-.close-button-container {
+.close-button-position {
+  position: absolute;
   right: 10px;
   top: 10px;
 }
 
 .menu-icon {
-  margin-right: 7px!important;
+  margin-right: 7px !important;
 }
