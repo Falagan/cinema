@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Action, Store } from '@global/lib-store';
-import { User } from '../models/user';
+import { User } from '@cinema/lib-cinema';
 import { GlobalInitialState, GlobalStateProps } from './store/global-initial.state';
 import { GlobalStateActions } from './store/global.actions';
 import { GlobalReducer } from './store/global.reducers';

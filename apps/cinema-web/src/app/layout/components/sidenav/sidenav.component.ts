@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GlobalStateService } from '../../../common/global-state/global-state.service';
-import { Menu } from '../../../common/models/menu';
+import { Menu } from '@cinema/lib-cinema';
 import { GlobalStateProps } from '../../../common/global-state/store/global-initial.state';
 
 @Component({
@@ -36,5 +36,8 @@ export class SidenavComponent implements OnInit {
 
   private binds() {
     this.menu$ = this.globalState.bind$(GlobalStateProps.SIDE_MENU_ITEMS);
+    this.menu$.subscribe((test)=>{
+      console.log('asdasd',test)
+    })
   }
 }

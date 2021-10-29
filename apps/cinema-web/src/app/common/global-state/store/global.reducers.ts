@@ -12,7 +12,7 @@ export const GlobalReducer: reducerFunction<GlobalState, GlobalStateActions, Glo
   switch (action.type) {
     case GlobalStateActions.SET_SIDE_MENU:
       if (action.singleProp) {
-        clonedState.sideMenuItems = [...action.payload];
+        clonedState.sideMenuItems = _.cloneDeep(action.payload);
         return { propState: clonedState.sideMenuItems, prop: GlobalStateProps.SIDE_MENU_ITEMS };
       }
       return clonedState;

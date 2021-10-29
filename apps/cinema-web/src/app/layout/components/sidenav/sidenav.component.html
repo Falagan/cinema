@@ -12,14 +12,13 @@
     <!-- Avatar -->
     <!-- <div class="col-12"></div> -->
     <!-- Menu Items -->
-    <div class="col-12 h-100">
+    <div class="col-12 pt-5 h-100">
       <!-- Items -->
-      <ng-container *ngIf="false; else loading">
+      <ng-container *ngIf="true; else loading">
         <mat-nav-list>
           <mat-list-item *ngFor="let item of (menu$ | async)?.items">
-            <a matLine href="...">{{ item.label }}</a>
             <button mat-icon-button (click)="onNavigateTo(item.link)">
-              <mat-icon>{{ item.icon }}</mat-icon>
+              <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>{{ item.label }}
             </button>
           </mat-list-item>
         </mat-nav-list>

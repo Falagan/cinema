@@ -1,5 +1,6 @@
 export interface _Menu {
   id: string;
+  name: string;
   items: _MenuItem[];
 }
 
