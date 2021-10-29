@@ -5,6 +5,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatListModule } from '@angular/material/list';
 import { MatMenuModule } from '@angular/material/menu';
 import { MatSidenavModule } from '@angular/material/sidenav';
+import { SharedModule } from '../common/shared.module';
 import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
@@ -18,7 +19,8 @@ import { LayoutComponent } from './layout.component';
     MatIconModule,
     MatButtonModule,
     MatMenuModule,
-    MatListModule
+    MatListModule,
+    SharedModule
   ]
 })
 export class LayoutModule {}

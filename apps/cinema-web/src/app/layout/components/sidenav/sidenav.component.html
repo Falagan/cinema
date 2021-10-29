@@ -1,19 +1,20 @@
-<div class="container-fluid">
-  <div class="row align-items-center">
+<div class="container-fluid h-100 sidenav-container">
+  <!-- Close button -->
+  <div class="row align-items-center h-100">
     <!-- Close button -->
     <div class="col-12">
-      <div>
-        <button class="position-absolute ml-auto mr-4" mat-icon-button (click)="onCloseSideMenu()">
+      <div class="position-absolute close-button-container">
+        <button mat-icon-button (click)="onCloseSideMenu()">
           <mat-icon class="icon-size">chevron_left</mat-icon>
         </button>
       </div>
     </div>
     <!-- Avatar -->
-    <div class="col-12"></div>
+    <!-- <div class="col-12"></div> -->
     <!-- Menu Items -->
-    <div class="col-12">
+    <div class="col-12 h-100">
       <!-- Items -->
-      <ng-container *ngIf="!loading$; else loading">
+      <ng-container *ngIf="false; else loading">
         <mat-nav-list>
           <mat-list-item *ngFor="let item of (menu$ | async)?.items">
             <a matLine href="...">{{ item.label }}</a>
@@ -25,7 +26,7 @@
       </ng-container>
       <!-- Loading -->
       <ng-template #loading>
-
+        <cinema-block-template [text]="'cineming...'"></cinema-block-template>
       </ng-template>
     </div>
   </div>

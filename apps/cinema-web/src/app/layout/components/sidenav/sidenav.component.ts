@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs';
 import { GlobalStateService } from '../../../common/global-state/global-state.service';
-import { Menu } from '../../../common/global-state/models/menu';
+import { Menu } from '../../../common/models/menu';
 import { GlobalStateProps } from '../../../common/global-state/store/global-initial.state';
 
 @Component({
