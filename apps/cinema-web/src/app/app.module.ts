@@ -10,9 +10,9 @@ import { HomeModule } from './home/home.module';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HomeModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    HomeModule
   ],
   providers: [],
   bootstrap: [AppComponent],
