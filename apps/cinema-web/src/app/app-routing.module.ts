@@ -7,14 +7,15 @@ const routes: Routes = [
     path: '',
     component: HomeComponent
   },
+  { path: 'cinema', loadChildren: () => import('./layout/layout.module').then((m) => m.LayoutModule) },
   {
     path: '**',
-    redirectTo: '',
-  },
+    redirectTo: ''
+  }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule],
+  exports: [RouterModule]
 })
 export class AppRoutingModule {}
