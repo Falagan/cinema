@@ -1,8 +1,8 @@
 import * as _ from 'lodash';
-import { Action, reducerFunction } from '../../main-store/store.base';
 import { GlobalStateProps } from './global-initial.state';
 import { GlobalStateActions } from './global.actions';
 import { GlobalState } from './global.state';
+import { reducerFunction, Action }  from '@global/lib-store'
 
 export const GlobalReducer: reducerFunction<GlobalState, GlobalStateActions, GlobalStateProps> = function (
   state: GlobalState,

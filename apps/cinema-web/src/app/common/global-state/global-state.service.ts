@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Store } from '../main-store/store';
-import { Action } from '../main-store/store.base';
-import { User } from '../models/user';
+import { Action, Store } from '@global/lib-store';
+import { User } from './models/user';
 import { GlobalInitialState, GlobalStateProps } from './store/global-initial.state';
 import { GlobalStateActions } from './store/global.actions';
 import { GlobalReducer } from './store/global.reducers';
