@@ -1,13 +1,13 @@
 <mat-card class="card-size w-100">
   <mat-card-header>
-    <div mat-card-avatar></div>
-    <mat-card-title>{{ movie.title }}</mat-card-title>
-    <mat-card-subtitle>{{ movie.genre }}</mat-card-subtitle>
+    <mat-card-title>{{ movie.title.length > 25 ? (movie.title | slice:0:25) + ' ...' : movie.title }}</mat-card-title>
+    <mat-card-subtitle>
+      <p-rating [ngModel]="movie.imdbRating" [readonly]="true" [stars]="10" [cancel]="false" [style]="{color:'#673ab7'}"></p-rating>
+    </mat-card-subtitle>
   </mat-card-header>
-  <!-- <img class="img-size rounded img-fluid mx-auto d-block" mat-card-image [src]="movie.link" /> -->
-  <mat-card-actions>
-    <div *ngFor="let tag of movie.actors">
-      {{ tag }}
-    </div>
-  </mat-card-actions>
+  <img class="rounded img-fluid mx-auto d-block"
+    [src]="movie.poster ? movie.poster : 'https://dummyimage.com/400x600/943294/c7bacf.png&text=No+Image'" />
+  <div class="d-flex flex-row flex-wrap justify-content-center">
+    <div class="p-2" *ngFor="let genre of movie.genre">#{{ genre }}</div>
+  </div>
 </mat-card>

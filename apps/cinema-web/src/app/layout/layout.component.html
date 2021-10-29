@@ -1,6 +1,6 @@
 <mat-drawer-container class="h-100 w-100" autosize>
   <!-- Side Content -->
-  <mat-drawer mode="side" disableClose="true" [opened]="sideMenuOpen$ | async">
+  <mat-drawer mode="over" [opened]="sideMenuOpen$ | async">
       <cinema-sidenav (closeSideMenu)="onToggleSideMenu()"></cinema-sidenav>
   </mat-drawer>
   <!-- Main Content Container -->
