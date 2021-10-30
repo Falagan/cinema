@@ -6,7 +6,7 @@ export interface _Menu {
 
 export interface _MenuItem {
   id: string;
-  label: string;
+  labelI18nEs: string;
   link: string;
   icon: string;
 }

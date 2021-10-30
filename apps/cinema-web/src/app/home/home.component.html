@@ -1,11 +1,14 @@
 <div class="container-fluid h-100">
   <div class="row align-items-center h-100">
-      <!-- Main title -->
+    <!-- Main title -->
     <div class="col-lg-6 col-12 text-center">
-      <h1>cinema<span class="app-icon">_</span></h1>
+      <div class="logo-container">
+        <h1>cinema<span class="app-icon mb-5">_</span></h1>
+        <h3 class="font-italic font-weight-light">{{ 'home.welcome' | translate }}</h3>
+      </div>
     </div>
     <!-- Fake Login -->
-    <div class="section-login col-lg-6 col-12 text-center">
+    <div class="col-lg-6 col-12 text-center section-login ">
       <cinema-login (loginCredentials)="login($event)"></cinema-login>
     </div>
   </div>

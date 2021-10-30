@@ -1,0 +1,17 @@
+{
+  "home": {
+    "welcome": "bienvenido a tu cine favorito!"
+  },
+  "movies": {
+    "toolbarTitle": "Películas",
+    "menuLabel": "Películas"
+  },
+  "actors": {
+    "toolbarTitle": "Actores",
+    "menuLabel": "Actores"
+  },
+  "companies": {
+    "toolbarTitle": "Compañías",
+    "menuLabel": "Compañías"
+  }
+}
