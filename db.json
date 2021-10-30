@@ -270,17 +270,17 @@
     "name": "aside",
     "items": [
       {
-        "label": "Películas",
+        "labelI18nEs": "movies.menuLabel",
         "icon": "movie",
         "link": "/cinema/movies/list"
       },
       {
-        "label": "Actores",
+        "labelI18nEs": "actors.menuLabel",
         "icon": "recent_actors",
         "link": "/cinema/actors/list"
       },
       {
-        "label": "Compañías",
+        "labelI18nEs": "companies.menuLabel",
         "icon": "business",
         "link": "/cinema/companies/list"
       }

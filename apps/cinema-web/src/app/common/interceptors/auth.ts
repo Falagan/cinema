@@ -2,6 +2,7 @@ import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { NotifierTypes } from '../notifier/notifier-config';
@@ -11,6 +12,8 @@ import { NotifierMsg } from '../notifier/notifier-msg';
   providedIn: 'root'
 })
 export class AuthInterceptor implements HttpInterceptor {
+  @BlockUI() blockUI: NgBlockUI;
+
   constructor(private router: Router, private notifierService: NotifierService) {}
 
   /**
@@ -76,6 +79,7 @@ export class AuthInterceptor implements HttpInterceptor {
                 return;
               }
             }
+            this.blockUI.stop();
           }
         }
       )

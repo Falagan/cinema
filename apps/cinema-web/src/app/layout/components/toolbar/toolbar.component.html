@@ -7,7 +7,9 @@
   <!-- Logo -->
   <h1 class="title-position">C<span class="app-icon-toolbar">_</span></h1>
   <!-- Section -->
-  <span>{{ title$ | async }}</span>
+  <ng-container *ngIf="title$ | async as title">
+    <span>{{ title | translate }}</span>
+  </ng-container>
   <!-- Logout -->
   <button class="ml-auto" mat-icon-button (click)="onLogout()">
     <mat-icon>logout</mat-icon>

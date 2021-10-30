@@ -4,7 +4,7 @@ export const GlobalInitialState: GlobalState = {
   user: null,
   sideMenuItems: [],
   sideMenuOpen: false,
-  toolBarTitle: 'Películas'
+  toolBarTitle: 'movies.toolbarTitle'
 };
 
 

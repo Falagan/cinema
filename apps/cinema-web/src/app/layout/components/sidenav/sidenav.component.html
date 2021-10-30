@@ -3,24 +3,22 @@
   <div class="row h-100">
     <div class="col-12 text-center">
       <!-- Close button -->
-      <div>
-        <button mat-icon-button class="close-button-position" (click)="onCloseSideMenu()">
-          <mat-icon class="icon-size">chevron_left</mat-icon>
-        </button>
-      </div>
+      <button mat-icon-button class="close-button-position button-size" (click)="onCloseSideMenu()">
+        <mat-icon class="icon-size">chevron_left</mat-icon>
+      </button>
       <!-- Logo -->
       <h1 class="title-position">cinema<span class="app-icon-sidenav">_</span></h1>
       <!-- Avatar -->
       <ng-container *ngIf="user$ | async as user;">
-        <p-avatar [image]="user.avatar" styleClass="p-mr-2 mt-5 size"  shape="circle"></p-avatar>
+        <p-avatar [image]="user.avatar" styleClass="p-mr-2 mt-5 size" shape="circle"></p-avatar>
         <p>{{user.name}}</p>
       </ng-container>
-      <hr/>
+      <hr />
       <!-- Menu Items -->
       <mat-nav-list class="pt-2">
         <mat-list-item *ngFor="let item of (menu$ | async)?.items">
           <button mat-icon-button (click)="onNavigateTo(item.link)">
-            <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>{{ item.label }}
+            <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>{{ item.labelI18nEs | translate }}
           </button>
         </mat-list-item>
       </mat-nav-list>
