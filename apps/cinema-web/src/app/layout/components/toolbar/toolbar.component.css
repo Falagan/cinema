@@ -1,0 +1,18 @@
+h1 {
+  font-size: 1.3rem;
+}
+
+.h1,
+.title-position {
+  position: relative;
+  top: -6px;
+}
+
+.app-icon-toolbar {
+  font-size: 3.5rem;
+  color: #673ab7;
+}
+
+mat-toolbar {
+  border-bottom: 1px solid rgb(103, 58, 183, 0.3);
+}

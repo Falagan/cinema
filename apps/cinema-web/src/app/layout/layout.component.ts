@@ -9,27 +9,23 @@ import { GlobalStateProps } from '../common/global-state/store/global-initial.st
   styleUrls: ['./layout.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent {
   @ViewChild('drawer') drawer: any;
   public sideMenuOpen$: Observable<boolean>;
 
-  constructor(private globalState: GlobalStateService) {}
-
-  //HOOKS
-
-  ngOnInit(): void {
-    this.bindGlobalState();
+  constructor(private globalState: GlobalStateService) {
+    this.binds()
   }
 
   // UTILS
 
-  onToggleSideMenu() {
-    this.globalState.setSideMenuOpenState(false);
+  onToggleSideMenu(state:boolean) {
+    this.globalState.setSideMenuOpenState(state);
   }
 
   // BINDS
 
-  bindGlobalState() {
+  binds() {
     this.sideMenuOpen$ = this.globalState.bind$(GlobalStateProps.SIDE_MENU_OPEN_STATE);
   }
 }

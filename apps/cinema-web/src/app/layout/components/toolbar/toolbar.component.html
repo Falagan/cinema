@@ -1,0 +1,8 @@
+<mat-toolbar class="sticky-top">
+  <button mat-icon-button (click)="onOpenSideMenu()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <h1 class="title-position align-self-center">C<span class="app-icon-toolbar">_</span></h1>
+  <!-- <mat-icon>grid_3x3</mat-icon> -->
+  <span>{{ title$ | async }}</span>
+</mat-toolbar>

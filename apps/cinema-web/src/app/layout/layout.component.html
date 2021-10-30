@@ -1,10 +1,11 @@
 <mat-drawer-container class="h-100 w-100" autosize>
   <!-- Side Content -->
-  <mat-drawer mode="over" [opened]="sideMenuOpen$ | async">
-      <cinema-sidenav (closeSideMenu)="onToggleSideMenu()"></cinema-sidenav>
+  <mat-drawer mode="over" disableClose="true" [opened]="sideMenuOpen$ | async">
+    <cinema-sidenav (closeSideMenu)="onToggleSideMenu($event)"></cinema-sidenav>
   </mat-drawer>
   <!-- Main Content Container -->
   <div class="h-100">
+    <cinema-toolbar (openSideMenu)="onToggleSideMenu($event)"></cinema-toolbar>
     <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>

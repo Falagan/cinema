@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 import { Router } from '@angular/router';
 import { Menu } from '@cinema/lib-cinema';
 import { Observable } from 'rxjs';
@@ -11,16 +11,11 @@ import { GlobalStateProps } from '../../../common/global-state/store/global-init
   styleUrls: ['./sidenav.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SidenavComponent implements OnInit {
+export class SidenavComponent {
   @Output() closeSideMenu = new EventEmitter();
   public menu$: Observable<Menu>;
-  public loading$ = false;
 
-  constructor(private router: Router, private globalState: GlobalStateService) {}
-
-  // HOOKS
-
-  ngOnInit(): void {
+  constructor(private router: Router, private globalState: GlobalStateService) {
     this.binds();
   }
 
@@ -31,14 +26,12 @@ export class SidenavComponent implements OnInit {
   }
 
   onCloseSideMenu() {
-    this.closeSideMenu.emit(true);
+    this.closeSideMenu.emit(false);
   }
+
   // BINDS
 
   private binds() {
     this.menu$ = this.globalState.bind$(GlobalStateProps.SIDE_MENU_ITEMS);
-    this.menu$.subscribe((test) => {
-      console.log('asdasd', test);
-    });
   }
 }

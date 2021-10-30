@@ -8,21 +8,16 @@
           <mat-icon class="icon-size">chevron_left</mat-icon>
         </button>
       </div>
+      <!-- Logo -->
+      <h1 class="title-position">cinema<span class="app-icon-sidenav">_</span></h1>
       <!-- Menu Items -->
-      <ng-container *ngIf="true; else loading">
-        <mat-nav-list class="pt-5">
-          <mat-list-item *ngFor="let item of (menu$ | async)?.items">
-            <button mat-icon-button (click)="onNavigateTo(item.link)">
-              <mat-icon class="menu-icon">{{ item.icon }}</mat-icon
-              >{{ item.label }}
-            </button>
-          </mat-list-item>
-        </mat-nav-list>
-      </ng-container>
-      <!-- Loading Menu -->
-      <ng-template #loading>
-        <cinema-block-template [text]="'cineming...'"></cinema-block-template>
-      </ng-template>
+      <mat-nav-list class="pt-5">
+        <mat-list-item *ngFor="let item of (menu$ | async)?.items">
+          <button mat-icon-button (click)="onNavigateTo(item.link)">
+            <mat-icon class="menu-icon">{{ item.icon }}</mat-icon>{{ item.label }}
+          </button>
+        </mat-list-item>
+      </mat-nav-list>
     </div>
   </div>
 </div>
