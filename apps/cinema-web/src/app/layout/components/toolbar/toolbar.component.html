@@ -1,8 +1,16 @@
 <mat-toolbar class="sticky-top">
+
+  <!-- Menu Button -->
   <button mat-icon-button (click)="onOpenSideMenu()">
     <mat-icon>menu</mat-icon>
   </button>
-  <h1 class="title-position align-self-center">C<span class="app-icon-toolbar">_</span></h1>
-  <!-- <mat-icon>grid_3x3</mat-icon> -->
+  <!-- Logo -->
+  <h1 class="title-position">C<span class="app-icon-toolbar">_</span></h1>
+  <!-- Section -->
   <span>{{ title$ | async }}</span>
+  <!-- Logout -->
+  <button class="ml-auto" mat-icon-button (click)="onLogout()">
+    <mat-icon>logout</mat-icon>
+  </button>
+
 </mat-toolbar>
