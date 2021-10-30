@@ -1,5 +1,4 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Login } from '@cinema/lib-cinema';
 import { AuthService } from './../common/services/auth.service';
 
 @Component({
@@ -11,7 +10,7 @@ import { AuthService } from './../common/services/auth.service';
 export class HomeComponent {
   constructor(private authService: AuthService) {}
 
-  login(credentials: Login) {
+  login(credentials: any) {
     this.authService.login(credentials, '/cinema/movies/list');
   }
 }

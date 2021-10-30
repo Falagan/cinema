@@ -11,8 +11,11 @@ import { Login } from '../../front.index';
 export class AuthRepository {
   private apiUrl: string = environment.apiUrl;
   constructor(private httpClient: HttpClient) {}
-
+  /**
+   * Fake login user
+   * @param  {Login} credentials
+   */
   public login(credentials: Login): Observable<_Login> {
-    return this.httpClient.post<_Login>(`${this.apiUrl}${AuthRoutes.LOGIN}`, credentials);
+    return this.httpClient.get<_Login>(`${this.apiUrl}${AuthRoutes.LOGIN}`);
   }
 }

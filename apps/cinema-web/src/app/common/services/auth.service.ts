@@ -17,19 +17,32 @@ export class AuthService {
 
   public async login(credentials: Login, navigateTo: string) {
     const login: _Login = await this.authRepository.login(credentials).toPromise();
-    if (login) {
+    if (login.fakeToken) {
       const action: Action<GlobalStateActions> = {
         type: GlobalStateActions.SET_USER,
         payload: { name: login.name, avatar: login.avatar },
         singleProp: true
       };
       this.globalState.dispatchPropState(action);
-
-      sessionStorage.setItem('fakeToken', login.fakeToken);
-
+      this.saveSession(login);
       this.router.navigate([navigateTo]);
     } else {
       this.router.navigate(['/']);
     }
+  }
+
+  public async logout() {
+    sessionStorage.clear();
+    this.router.navigate(['/']);
+  }
+
+  /**
+   * Saves user session data on session storageo
+   * @param  {_Login} login
+   */
+  private saveSession(login: _Login) {
+    sessionStorage.setItem('fakeToken', login.fakeToken);
+    sessionStorage.setItem('userName', login.name);
+    sessionStorage.setItem('avatar', login.avatar);
   }
 }

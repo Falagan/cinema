@@ -1,6 +1,6 @@
 import { HttpErrorResponse, HttpEvent, HttpHandler, HttpInterceptor, HttpRequest } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { Router } from '@angular/router';
 import { NotifierService } from 'angular-notifier';
 import { Observable } from 'rxjs';
 import { tap } from 'rxjs/operators';
@@ -11,7 +11,7 @@ import { NotifierMsg } from '../notifier/notifier-msg';
   providedIn: 'root'
 })
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private router: Router, private notifierService: NotifierService, private route: ActivatedRoute) {}
+  constructor(private router: Router, private notifierService: NotifierService) {}
 
   /**
    * Intercepts all request and responses.
@@ -23,6 +23,7 @@ export class AuthInterceptor implements HttpInterceptor {
    * @returns intercept
    */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+    console.log('inter');
     const token: string | null = sessionStorage.getItem('fakeToken');
 
     let request = req;
@@ -33,6 +34,9 @@ export class AuthInterceptor implements HttpInterceptor {
           authorization: `Bearer ${token}`
         }
       });
+    } else {
+      this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.ACCESS_NOT_ALLOWED });
+      this.router.navigate(['/']);
     }
 
     return next.handle(request).pipe(
