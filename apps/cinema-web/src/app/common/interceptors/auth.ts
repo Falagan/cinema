@@ -23,7 +23,6 @@ export class AuthInterceptor implements HttpInterceptor {
    * @returns intercept
    */
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
-    console.log('inter');
     const token: string | null = sessionStorage.getItem('fakeToken');
 
     let request = req;
@@ -34,9 +33,6 @@ export class AuthInterceptor implements HttpInterceptor {
           authorization: `Bearer ${token}`
         }
       });
-    } else {
-      this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.ACCESS_NOT_ALLOWED });
-      this.router.navigate(['/']);
     }
 
     return next.handle(request).pipe(
@@ -47,12 +43,12 @@ export class AuthInterceptor implements HttpInterceptor {
             switch (err.status) {
               case 400: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.BAD_REQUEST });
+                this.router.navigate(['/']);
                 break;
               }
               case 401: {
                 this.notifierService.show({ type: NotifierTypes.info, message: NotifierMsg.ACCESS_NOT_ALLOWED });
                 this.router.navigate(['/']);
-
                 break;
               }
               case 404: {
@@ -68,11 +64,12 @@ export class AuthInterceptor implements HttpInterceptor {
               }
               case 500: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.SYSTEM_ERROR });
-
+                this.router.navigate(['/']);
                 break;
               }
               case 0: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.SYSTEM_ERROR });
+                this.router.navigate(['/']);
                 break;
               }
               default: {
