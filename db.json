@@ -261,7 +261,7 @@
     }
   ],
   "login": {
-    "user": "Bruce Springsteen",
+    "name": "Bruce Springsteen",
     "avatar": "https://img.discogs.com/0ZsBabyMaWLCrkKb07qxrKQX790=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-219986-1504406423-1234.jpeg.jpg",
     "fakeToken": "sdagfsrmwenrioukNAD"
   },
