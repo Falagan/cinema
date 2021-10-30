@@ -1,4 +1,4 @@
-﻿{
+{
   "movies": [
     {
       "id": 1,
@@ -261,9 +261,7 @@
     }
   ],
   "login": {
-    "id": 1,
-    "name": "Bruce Springsteen",
-    "email": "mail@mail.com",
+    "user": "Bruce Springsteen",
     "avatar": "https://img.discogs.com/0ZsBabyMaWLCrkKb07qxrKQX790=/fit-in/300x300/filters:strip_icc():format(jpeg):mode_rgb():quality(40)/discogs-images/A-219986-1504406423-1234.jpeg.jpg",
     "fakeToken": "sdagfsrmwenrioukNAD"
   },
@@ -271,9 +269,21 @@
     "id": 1,
     "name": "aside",
     "items": [
-      { "label": "Películas", "icon": "movie", "link": "/cinema/movies/list" },
-      { "label": "Actores", "icon": "recent_actors", "link": "/cinema/actors/list" },
-      { "label": "Compañías", "icon": "business", "link": "/cinema/companies/list" }
+      {
+        "label": "Películas",
+        "icon": "movie",
+        "link": "/cinema/movies/list"
+      },
+      {
+        "label": "Actores",
+        "icon": "recent_actors",
+        "link": "/cinema/actors/list"
+      },
+      {
+        "label": "Compañías",
+        "icon": "business",
+        "link": "/cinema/companies/list"
+      }
     ]
   }
 }

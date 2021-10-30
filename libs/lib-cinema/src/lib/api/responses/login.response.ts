@@ -1,5 +1,5 @@
 export interface _Login {
-  user: string;
+  name: string;
   avatar: string;
   fakeToken: string;
 }

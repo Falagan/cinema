@@ -13,6 +13,6 @@ export class AuthRepository {
   constructor(private httpClient: HttpClient) {}
 
   public login(credentials: Login): Observable<_Login> {
-    return this.httpClient.post<_Login>(`${this.apiUrl}${AuthRoutes.PRE}${AuthRoutes.LOGIN}`, credentials);
+    return this.httpClient.post<_Login>(`${this.apiUrl}${AuthRoutes.LOGIN}`, credentials);
   }
 }

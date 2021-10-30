@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { Router } from '@angular/router';
+import { Login } from '@cinema/lib-cinema';
+import { AuthService } from './../common/services/auth.service';
 
 @Component({
   selector: 'cinema-home',
@@ -8,10 +9,9 @@ import { Router } from '@angular/router';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class HomeComponent {
-  constructor(private router: Router){};
+  constructor(private authService: AuthService) {}
 
-  login(credentials: { email: string; password: string }) {
-    console.log(credentials);
-    this.router.navigate(['/cinema/movies/list']);
+  login(credentials: Login) {
+    this.authService.login(credentials, '/cinema/movies/list');
   }
 }

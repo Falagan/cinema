@@ -11,7 +11,7 @@ import { SidenavComponent } from './components/sidenav/sidenav.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { LayoutRoutingModule } from './layout-routing.module';
 import { LayoutComponent } from './layout.component';
-
+import { AvatarModule } from 'primeng/avatar';
 @NgModule({
   declarations: [LayoutComponent, SidenavComponent, ToolbarComponent],
   imports: [
@@ -23,7 +23,8 @@ import { LayoutComponent } from './layout.component';
     MatMenuModule,
     MatListModule,
     SharedModule,
-    MatToolbarModule
+    MatToolbarModule,
+    AvatarModule
   ]
 })
 export class LayoutModule {}

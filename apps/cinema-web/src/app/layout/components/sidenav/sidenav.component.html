@@ -10,6 +10,11 @@
       </div>
       <!-- Logo -->
       <h1 class="title-position">cinema<span class="app-icon-sidenav">_</span></h1>
+      <!-- Avatar -->
+      <ng-container *ngIf="user$ | async as user;">
+        <p-avatar [image]="user.avatar" styleClass="p-mr-2" size="large" shape="circle"></p-avatar>
+        <p>{{user.name}}</p>
+      </ng-container>
       <!-- Menu Items -->
       <mat-nav-list class="pt-5">
         <mat-list-item *ngFor="let item of (menu$ | async)?.items">
