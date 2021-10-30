@@ -11,6 +11,8 @@ import { HomeModule } from './home/home.module';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { AuthInterceptor } from './common/interceptors/auth';
+import { BlockTemplateComponent } from '@cinema/lib-cinema';
+import { BlockUIModule } from 'ng-block-ui';
 
 function loadGlobalConfigutation(globalStateService: GlobalStateService) {
   return () => {
@@ -30,6 +32,7 @@ function loadGlobalConfigutation(globalStateService: GlobalStateService) {
     HttpClientModule,
     HomeModule,
     NotifierModule.withConfig(NotifierConfig),
+    BlockUIModule.forRoot({ template: BlockTemplateComponent }),
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: environment.production,
       // Register the ServiceWorker as soon as the app is stable

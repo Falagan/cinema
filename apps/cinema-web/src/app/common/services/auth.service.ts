@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthRepository, Login, _Login } from '@cinema/lib-cinema';
 import { Action } from '@global/lib-store';
+import { BlockUI, NgBlockUI } from 'ng-block-ui';
 import { GlobalStateService } from '../global-state/global-state.service';
 import { GlobalStateActions } from '../global-state/store/global.actions';
 
@@ -9,6 +10,8 @@ import { GlobalStateActions } from '../global-state/store/global.actions';
   providedIn: 'root'
 })
 export class AuthService {
+  @BlockUI() blockUI: NgBlockUI;
+
   constructor(
     private globalState: GlobalStateService,
     private authRepository: AuthRepository,
@@ -29,6 +32,7 @@ export class AuthService {
     } else {
       this.router.navigate(['/']);
     }
+    this.blockUI.stop();
   }
 
   public async logout() {
