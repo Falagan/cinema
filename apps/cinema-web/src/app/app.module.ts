@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { GlobalStateService } from './common/global-state/global-state.service';
 import { NotifierConfig } from './common/notifier/notifier-config';
 import { HomeModule } from './home/home.module';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 function loadGlobalConfigutation(globalStateService: GlobalStateService) {
   return () => {
@@ -24,7 +26,13 @@ function loadGlobalConfigutation(globalStateService: GlobalStateService) {
     BrowserAnimationsModule,
     HttpClientModule,
     HomeModule,
-    NotifierModule.withConfig(NotifierConfig)
+    NotifierModule.withConfig(NotifierConfig),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the app is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
 
   providers: [

@@ -1,0 +1,48 @@
+{
+  "$schema": "../../node_modules/@angular/service-worker/config/schema.json",
+  "index": "/index.html",
+  "assetGroups": [
+    {
+      "name": "coreapp",
+      "installMode": "prefetch",
+      "resources": {
+        "files": [
+          "/favicon.ico",
+          "/index.html",
+          "/manifest.webmanifest",
+          "/*.css",
+          "/common*.js",
+          "/main*.js",
+          "/ngsw*.js",
+          "/*woker*.js",
+          "/*polyfills*.js",
+          "/runtime*.js"
+        ]
+      }
+    },
+    {
+      "name": "lazyapp",
+      "installMode": "lazy",
+      "updateMode": "prefetch",
+      "resources": {
+        "files": ["/*.js"]
+      }
+    }
+  ],
+  "dataGroups": [
+    {
+      "name": "cache-data",
+      "urls": [
+        "http://localhost:3000/movies",
+        "http://localhost:3000/actors",
+        "http://localhost:3000/companies",
+        "http://localhost:3000/menus"
+      ],
+      "cacheConfig": {
+        "strategy": "performance",
+        "maxAge": "5m",
+        "maxSize": 10
+      }
+    }
+  ]
+}
