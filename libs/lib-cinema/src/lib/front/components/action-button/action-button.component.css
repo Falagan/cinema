@@ -1,0 +1,35 @@
+.float-button-container {
+  right: 64px;
+  bottom: 83px;
+  position: absolute;
+  z-index: 9999;
+}
+
+.float-button {
+  background-color: #ffb400 !important;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.float-button-stop {
+  background-color: #ff0000 !important;
+  box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
+}
+
+.float-button-icon {
+  color: white;
+  font-size: 25px !important;
+}
+
+.float-button-container-secondary {
+  right: 45px;
+  bottom: 110px;
+  position: absolute;
+  z-index: 9999;
+}
+
+@media (max-width: 750px) {
+  .float-button-container {
+    right: 35px;
+    bottom: 67px;
+  }
+}

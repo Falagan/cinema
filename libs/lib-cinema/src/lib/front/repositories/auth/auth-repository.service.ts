@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '@cinema/web/envs';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { AuthRoutes, _Login } from '../../../api/api.index';
 import { Login } from '../../front.index';
@@ -9,8 +8,7 @@ import { Login } from '../../front.index';
   providedIn: 'root'
 })
 export class AuthRepository {
-  private apiUrl: string = environment.apiUrl;
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, @Inject('apiUrl') private apiUrl: string) {}
   /**
    * Fake login user
    * @param  {Login} credentials

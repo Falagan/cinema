@@ -1,19 +1,15 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '@cinema/web/envs';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CommonRoutes, MovieRoutes, _Movie } from '../../../api/api.index';
 import { Movie } from '../../front.index';
 import { DeleteResponse } from './../../../api/responses/common/delete.response';
-import { DeleteMany } from './../../models/common/delete-many';
 
 @Injectable({
   providedIn: 'root'
 })
 export class MoviesRepository {
-  private apiUrl: string = environment.apiUrl;
-
-  constructor(private httpClient: HttpClient) {}
+  constructor(private httpClient: HttpClient, @Inject('apiUrl') private apiUrl: string) {}
 
   public findAll(): Observable<_Movie[]> {
     return this.httpClient.get<_Movie[]>(`${this.apiUrl}/${MovieRoutes.PRE}`);
@@ -34,7 +30,7 @@ export class MoviesRepository {
     return this.httpClient.delete<DeleteResponse>(`${this.apiUrl}${MovieRoutes.PRE}/${movieUid}`);
   }
 
-  public removeMany(deleteMovies: DeleteMany): Observable<DeleteResponse> {
+  public removeMany(deleteMovies: string[]): Observable<DeleteResponse> {
     return this.httpClient.post<DeleteResponse>(`${this.apiUrl}${MovieRoutes.PRE}`, deleteMovies);
   }
 }

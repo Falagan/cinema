@@ -1,6 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from '@cinema/web/envs';
+import { Inject, Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { ConfigurationsRoutes, _Menu } from '../../../api/api.index';
 
@@ -8,8 +7,8 @@ import { ConfigurationsRoutes, _Menu } from '../../../api/api.index';
   providedIn: 'root'
 })
 export class ConfigurationsRepositoryService {
-  private apiUrl: string = environment.apiUrl;
-  constructor(private httpClient: HttpClient) {}
+
+  constructor(private httpClient: HttpClient,@Inject('apiUrl') private apiUrl: string) {}
 
   public getAsideMenu(): Observable<_Menu> {
     return this.httpClient.get<_Menu>(`${this.apiUrl}${ConfigurationsRoutes.SIDE_MENU}`);

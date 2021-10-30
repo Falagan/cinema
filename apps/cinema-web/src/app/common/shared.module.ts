@@ -1,11 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { BlockTemplateComponent } from '@cinema/lib-cinema';
+import { FrontModule } from '@cinema/lib-cinema';
 import { TranslateModule } from '@ngx-translate/core';
 
 @NgModule({
-  declarations: [BlockTemplateComponent],
+  declarations: [],
   imports: [CommonModule],
-  exports: [BlockTemplateComponent,TranslateModule]
+  exports: [FrontModule,TranslateModule]
 })
 export class SharedModule {}

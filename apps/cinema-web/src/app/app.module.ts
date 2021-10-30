@@ -68,7 +68,8 @@ function HttpLoaderFactory(http: HttpClient) {
       provide: HTTP_INTERCEPTORS,
       useClass: AuthInterceptor,
       multi: true
-    }
+    },
+    { provide: 'apiUrl', useValue: environment.apiUrl }
   ],
   bootstrap: [AppComponent]
 })
