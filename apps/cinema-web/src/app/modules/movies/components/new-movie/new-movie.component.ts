@@ -1,9 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { Actor, Company } from '@cinema/lib-cinema';
 import { NotifierService } from 'angular-notifier';
+import { Observable } from 'rxjs';
+import { MoviesStateProps } from '../../store/movies-initial.state';
 import { GlobalStateService } from './../../../../common/global-state/global-state.service';
 import { NotifierTypes } from './../../../../common/notifier/notifier-config';
+import { MoviesService } from './../../services/movies.service';
 
 @Component({
   selector: 'cinema-new-movie',
@@ -12,9 +16,12 @@ import { NotifierTypes } from './../../../../common/notifier/notifier-config';
 })
 export class NewMovieComponent implements OnInit {
   public formNewMovie!: FormGroup;
+  public actorsList$: Observable<Actor[]>;
+  public companiesList$: Observable<Company[]>;
 
   constructor(
     private globalService: GlobalStateService,
+    private moviesService: MoviesService,
     private formBuilder: FormBuilder,
     private router: Router,
     private notifierService: NotifierService
@@ -33,6 +40,8 @@ export class NewMovieComponent implements OnInit {
       company: [null, [Validators.required]],
       year: [null, [Validators.required]]
     });
+    this.binds();
+    this.preloadSelectsOptions();
   }
 
   // EVENTS
@@ -53,5 +62,15 @@ export class NewMovieComponent implements OnInit {
 
   // UTILS
 
+  private preloadSelectsOptions() {
+    this.moviesService.findAllActors();
+    this.moviesService.findAllCompanies();
+  }
 
+  // BINDS
+
+  private binds() {
+    this.actorsList$ = this.moviesService.bind$(MoviesStateProps.ACTORS);
+    this.companiesList$ = this.moviesService.bind$(MoviesStateProps.COMPANIES);
+  }
 }

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { MoviesRepository } from '@cinema/lib-cinema';
+import { ActorsRepoitory, CompaniesRepository, MoviesRepository } from '@cinema/lib-cinema';
 import { Action, Store } from '@global/lib-store';
 import { MoviesInitialState, MoviesStateProps } from '../store/movies-initial.state';
 import { MoviesStateActions } from '../store/movies.actions';
@@ -10,7 +10,11 @@ import { MoviesState } from '../store/movies.state';
   providedIn: 'root'
 })
 export class MoviesService extends Store<MoviesState, MoviesStateActions, MoviesStateProps> {
-  constructor(private moviesRepository: MoviesRepository) {
+  constructor(
+    private moviesRepository: MoviesRepository,
+    private actorsRepository: ActorsRepoitory,
+    private companiesRepository: CompaniesRepository
+  ) {
     super(MoviesInitialState, MoviesReducer);
   }
 
@@ -20,7 +24,7 @@ export class MoviesService extends Store<MoviesState, MoviesStateActions, Movies
   public async findAll() {
     this.loadingState(true);
     const list = await this.moviesRepository.findAll().toPromise();
-    
+
     const action: Action<MoviesStateActions> = {
       type: MoviesStateActions.SET_LIST,
       payload: list,
@@ -41,6 +45,36 @@ export class MoviesService extends Store<MoviesState, MoviesStateActions, Movies
       payload: {},
       singleProp: true
     };
+    this.dispatchPropState(action);
+  }
+
+  /**
+   * Gets all the actors
+   */
+  public async findAllActors() {
+    const list = await this.actorsRepository.findAll().toPromise();
+
+    const action: Action<MoviesStateActions> = {
+      type: MoviesStateActions.SET_ACTORS,
+      payload: list,
+      singleProp: true
+    };
+
+    this.dispatchPropState(action);
+  }
+
+  /**
+   * Gets all the companies
+   *  */
+  public async findAllCompanies() {
+    const list = await this.companiesRepository.findAll().toPromise();
+
+    const action: Action<MoviesStateActions> = {
+      type: MoviesStateActions.SET_COMPANIES,
+      payload: list,
+      singleProp: true
+    };
+
     this.dispatchPropState(action);
   }
 

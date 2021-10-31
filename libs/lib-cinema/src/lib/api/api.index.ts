@@ -15,4 +15,6 @@ export * from './routes/auth.routes'
 export * from './routes/common.routes'
 export * from './routes/configurations.routes'
 export * from './routes/movie.routes'
+export * from './routes/actors.routes'
+export * from './routes/companies.routes'
 

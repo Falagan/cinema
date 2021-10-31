@@ -12,6 +12,8 @@ export * from './models/user';
 export * from './repositories/auth/auth-repository.service';
 export * from './repositories/configurations/configurations-repository.service';
 export * from './repositories/movies/movies-repository.service';
+export * from './repositories/actors/actors.service';
+export * from './repositories/companies/companies.service';
 /// Components
 export * from './components/front.module'
 export * from './components/action-button/action-button.component';
