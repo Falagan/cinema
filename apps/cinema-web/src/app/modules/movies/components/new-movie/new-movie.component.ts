@@ -28,7 +28,7 @@ export class NewMovieComponent implements OnInit {
       poster: [null, [Validators.required]],
       actors: [null, [Validators.required]],
       genre: [null, [Validators.required]],
-      imdbRating: [null, [Validators.required]],
+      imdbRating: [null],
       duration: [null, [Validators.required]],
       company: [null, [Validators.required]],
       year: [null, [Validators.required]]
