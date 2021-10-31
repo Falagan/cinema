@@ -1,4 +1,4 @@
-<div class="container-fluid h-100">
+<div class="container-fluid h-100 p-5">
   <div class="row h-100">
     <!-- Movies list -->
     <ng-container *ngIf="(loading$ | async) === false; else loading">
@@ -14,3 +14,6 @@
     </div>
   </ng-template>
 </div>
+<!-- Action Button -->
+<cinema-action-button [icon]="'add'" (onClickAction)="navigateToNewMovie()">
+</cinema-action-button>

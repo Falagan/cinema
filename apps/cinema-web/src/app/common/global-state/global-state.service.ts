@@ -23,6 +23,15 @@ export class GlobalStateService extends Store<GlobalState, GlobalStateActions, G
     this.dispatchPropState(action);
   }
 
+  public setToolBarTitle(section: string) {
+    const action: Action<GlobalStateActions> = {
+      type: GlobalStateActions.SET_TOOLBAR_TITLE,
+      payload: section,
+      singleProp: true
+    };
+    this.dispatchPropState(action);
+  }
+
   public async setSideMenuItems() {
     const menu: _Menu = await this.configurationService.getAsideMenu().toPromise();
 

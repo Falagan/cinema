@@ -41,6 +41,24 @@ export const MoviesReducer: reducerFunction<MoviesState, MoviesStateActions, Mov
         return { propState: clonedState.loading, prop: MoviesStateProps.LOADING };
       }
       return clonedState;
+      case MoviesStateActions.SET_ACTORS:
+      if (action.singleProp) {
+        clonedState.actors = _.cloneDeep(action.payload);
+        return { propState: clonedState.actors, prop: MoviesStateProps.ACTORS };
+      }
+      return clonedState;
+      case MoviesStateActions.SET_COMPANIES:
+      if (action.singleProp) {
+        clonedState.companies = _.cloneDeep(action.payload);
+        return { propState: clonedState.companies, prop: MoviesStateProps.COMPANIES };
+      }
+      return clonedState;
+      case MoviesStateActions.SET_GENRE:
+      if (action.singleProp) {
+        clonedState.genre = _.cloneDeep(action.payload);
+        return { propState: clonedState.genre, prop: MoviesStateProps.GENRE };
+      }
+      return clonedState;
     default:
       return clonedState;
   }

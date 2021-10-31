@@ -1,12 +1,12 @@
 .float-button-container {
   right: 64px;
   bottom: 83px;
-  position: absolute;
+  position: fixed;
   z-index: 9999;
 }
 
 .float-button {
-  background-color: #ffb400 !important;
+  background-color: #673ab7 !important;
   box-shadow: 0 10px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19) !important;
 }
 

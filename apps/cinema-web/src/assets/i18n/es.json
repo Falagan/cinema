@@ -3,7 +3,13 @@
     "welcome": "bienvenido a tu cine favorito!"
   },
   "movies": {
-    "toolbarTitle": "Películas",
+    "list": {
+      "toolbarTitle": "Películas"
+    },
+    "new": {
+      "toolbarTitle": "Nueva película"
+    },
+
     "menuLabel": "Películas"
   },
   "actors": {

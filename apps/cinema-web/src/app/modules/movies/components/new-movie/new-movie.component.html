@@ -1,0 +1,89 @@
+<form [formGroup]="formNewMovie">
+  <div class="container-fluid p-5">
+    <div class="row align-items-center ">
+      <!-- Title -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Título</mat-label>
+          <input formControlName="title" matInput type="text" />
+          <button matPrefix mat-icon-button>
+            <mat-icon>description</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <!-- Rating -->
+      <div class="col-lg-4 col-12 text-center">
+        <p>Puntuación</p>
+        <p-rating formControlName="imdbRating" [cancel]="false" [stars]="10" [style]="{color:'#673ab7'}">
+        </p-rating>
+      </div>
+      <div class="w-100"></div>
+      <!-- Genres -->
+      <div class="col-lg-4 col-12 mt-lg-0 mt-2">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-select placeholder="Géneros" formControlName="genre" multiple>
+            <mat-option *ngFor="let genre of ['aa','bb']" [value]="genre">{{genre}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- Actors -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-select placeholder="Actores" formControlName="actors" multiple>
+            <mat-option *ngFor="let actor of ['aa','bb']" [value]="actor">{{actor}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <!-- Company -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-select placeholder="Estudio" formControlName="company">
+            <mat-option *ngFor="let company of ['aa','bb']" [value]="company">{{company}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="w-100"></div>
+      <!-- Year -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Año</mat-label>
+          <input formControlName="year" matInput type="number" />
+          <button matPrefix mat-icon-button>
+            <mat-icon>date_range</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <!-- Duration -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Duración</mat-label>
+          <input formControlName="duration" matInput type="number" />
+          <button matPrefix mat-icon-button>
+            <mat-icon>watch_later</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+      <!-- Poster -->
+      <div class="col-lg-4 col-12">
+        <mat-form-field appearance="outline" class="w-100">
+          <mat-label>Poster (url)</mat-label>
+          <input formControlName="poster" matInput type="text" />
+          <button matPrefix mat-icon-button>
+            <mat-icon>link</mat-icon>
+          </button>
+        </mat-form-field>
+      </div>
+    </div>
+    <!-- Preview Poster -->
+    <div class="col-12 text-center">
+      <p-image [src]="formNewMovie.get('poster')?.value" width="250" [preview]=true></p-image>
+    </div>
+    <!-- Submit Button -->
+    <div class="col-12 text-center mt-3">
+      <button mat-raised-button color="primary" (click)="onFakeSubmit()">Guardar</button>
+    </div>
+  </div>
+</form>
+<!-- Action Button -->
+<cinema-action-button [icon]="'west'" (onClickAction)="onNavigateoMoviesList()">
+</cinema-action-button>
