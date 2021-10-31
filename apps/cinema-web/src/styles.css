@@ -50,3 +50,9 @@ body {
   background: #888;
   border-radius: 10px;
 }
+
+/* Notifier */
+.notifier__notification--success {
+  background-color: #673ab7;
+  color: #fff;
+}
