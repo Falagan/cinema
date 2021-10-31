@@ -8,7 +8,7 @@
     "start": "nx serve",
     "build": "nx build",
     "build:pre": "ng build --prod cinema-web --configuration preproduction",
-    "test": "nx test"
+    "test:e2e:cinema-web":"nx e2e cinema-web-e2e --watch"
   },
   "private": true,
   "dependencies": {
