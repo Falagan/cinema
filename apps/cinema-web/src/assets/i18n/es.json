@@ -2,14 +2,33 @@
   "home": {
     "welcome": "bienvenido a tu cine favorito!"
   },
+  "common": {
+    "save": "Guardar"
+  },
   "movies": {
     "list": {
       "toolbarTitle": "Películas"
     },
     "new": {
-      "toolbarTitle": "Nueva película"
+      "toolbarTitle": "Nueva película",
+      "title": "Título",
+      "rating": "Puntuación",
+      "year": "Año",
+      "company": "Estudios",
+      "actors": "Actor",
+      "duration": "Duración",
+      "genre": "Géneros",
+      "poster": "Poster (url)"
     },
-
+    "profile": {
+      "title": "Título",
+      "rating": "Puntuación",
+      "year": "Año",
+      "company": "Estudios",
+      "actors": "Actor",
+      "duration": "Duración",
+      "genre": "Géneros"
+    },
     "menuLabel": "Películas"
   },
   "actors": {

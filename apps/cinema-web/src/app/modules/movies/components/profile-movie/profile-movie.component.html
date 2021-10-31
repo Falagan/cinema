@@ -10,21 +10,21 @@
       <div class="col-lg-6 offset-lg-3 col-12 text-center">
         <div class="d-flex flex-row flex-wrap justify-content-around">
           <div class="p-2">
-            <p>Puntuación</p>
+            <p>{{ 'movies.profile.rating' | translate }}</p>
             <p-rating [ngModel]="movie.imdbRating" [readonly]="true" [stars]="10" [cancel]="false"
               [style]="{color:'#673ab7'}"></p-rating>
           </div>
           <div class="p-2">
-            <p>Año</p>{{ movie.year}}
+            <p>{{ 'movies.profile.year' | translate }}</p>{{ movie.year}}
           </div>
           <div class="p-2">
-            <p>Duración</p>{{ movie.duration | timingMovie }}
+            <p>{{ 'movies.profile.duration' | translate }}</p>{{ movie.duration | timingMovie }}
           </div>
         </div>
       </div>
       <!-- Actors-->
       <div class="col-lg-6 offset-lg-3 col-12">
-        <h4>Actores</h4>
+        <h4>{{ 'movies.profile.actors' | translate }}</h4>
         <hr />
         <span class="pr-2" *ngFor="let actor of movie.actors">
           {{ actor }}
@@ -32,7 +32,7 @@
       </div>
       <!-- Actors-->
       <div class="col-lg-6 offset-lg-3 col-12">
-        <h4>Estudios</h4>
+        <h4>{{ 'movies.profile.company' | translate }}</h4>
         <hr />
         <span class="pr-2">
           {{ movie.company }}
@@ -40,7 +40,7 @@
       </div>
       <!-- Genre-->
       <div class="col-lg-6 offset-lg-3 col-12">
-        <h4>Géneros</h4>
+        <h4>{{ 'movies.profile.genre' | translate }}</h4>
         <hr />
         <span class="pr-2" *ngFor="let gen of movie.genre">
           #{{ gen }}
