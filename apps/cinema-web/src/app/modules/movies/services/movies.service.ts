@@ -48,7 +48,7 @@ export class MoviesService extends Store<MoviesState, MoviesStateActions, Movies
 
     await this.fakeJoinBetweenMoviesActorsAndCompanies(movie);
 
-    console.log(movie)
+    console.log(movie);
 
     const action: Action<MoviesStateActions> = {
       type: MoviesStateActions.SET_PROFILE,
@@ -105,8 +105,10 @@ export class MoviesService extends Store<MoviesState, MoviesStateActions, Movies
   /** It simulates a join that should come done from api */
   private async fakeJoinBetweenMoviesActorsAndCompanies(movie: Movie | undefined) {
     if (movie) {
-      const actors = await this.actorsRepository.findAll().toPromise();
-      const companies = await this.companiesRepository.findAll().toPromise();
+      const actorsReq = this.actorsRepository.findAll().toPromise();
+      const companiesReq = this.companiesRepository.findAll().toPromise();
+
+      const [actors, companies] = await Promise.all([actorsReq, companiesReq]);
 
       const actorsJoined: any = [];
       let companyJoin: string | undefined = '';
