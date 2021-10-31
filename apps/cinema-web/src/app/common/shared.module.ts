@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
-import { FrontModule } from '@cinema/lib-cinema';
 import { TranslateModule } from '@ngx-translate/core';
+import { FrontModule } from '@cinema/lib-cinema';
 
 @NgModule({
   declarations: [],
