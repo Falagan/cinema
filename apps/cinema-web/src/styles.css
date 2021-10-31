@@ -56,3 +56,8 @@ body {
   background-color: #673ab7;
   color: #fff;
 }
+
+.notifier__notification--error {
+  background-color: #673ab7;
+  color: #fff;
+}

@@ -40,6 +40,9 @@ export class AuthInterceptor implements HttpInterceptor {
 
     return next.handle(request).pipe(
       tap(
+        () => {
+          return;
+        },
         // Responses ko
         (err: any) => {
           if (err instanceof HttpErrorResponse) {
@@ -51,11 +54,15 @@ export class AuthInterceptor implements HttpInterceptor {
               }
               case 401: {
                 this.notifierService.show({ type: NotifierTypes.info, message: NotifierMsg.ACCESS_NOT_ALLOWED });
+                this.blockUI.stop();
                 this.router.navigate(['/']);
+
                 break;
               }
               case 404: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.ROUTE_MISSING });
+                this.blockUI.stop();
+                this.router.navigate(['/']);
                 break;
               }
               case 403: {
@@ -63,15 +70,19 @@ export class AuthInterceptor implements HttpInterceptor {
                   type: 'warn',
                   message: NotifierMsg.ACCESS_NOT_ALLOWED
                 });
+                this.blockUI.stop();
+                this.router.navigate(['/']);
                 break;
               }
               case 500: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.SYSTEM_ERROR });
+                this.blockUI.stop();
                 this.router.navigate(['/']);
                 break;
               }
               case 0: {
                 this.notifierService.show({ type: NotifierTypes.error, message: NotifierMsg.SYSTEM_ERROR });
+                this.blockUI.stop();
                 this.router.navigate(['/']);
                 break;
               }
@@ -79,7 +90,6 @@ export class AuthInterceptor implements HttpInterceptor {
                 return;
               }
             }
-            this.blockUI.stop();
           }
         }
       )
