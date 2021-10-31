@@ -1,7 +1,7 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Movie } from '@cinema/lib-cinema';
-import { GlobalStateService } from 'apps/cinema-web/src/app/common/global-state/global-state.service';
+import { GlobalStateService } from './../../../../common/global-state/global-state.service';
 import { Observable } from 'rxjs';
 import { MoviesService } from '../../services/movies.service';
 import { MoviesStateProps } from '../../store/movies-initial.state';
@@ -29,6 +29,10 @@ export class ListMoviesComponent implements OnInit {
 
   public navigateToNewMovie() {
     this.router.navigate(['cinema/movies/new']);
+  }
+
+  public openMovieProfile(movieId: any) {
+    this.router.navigate(['cinema/movies/profile', movieId]);
   }
 
   private loadMovies() {

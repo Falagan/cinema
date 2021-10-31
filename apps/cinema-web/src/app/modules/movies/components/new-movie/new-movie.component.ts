@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { Actor, Company } from '@cinema/lib-cinema';
+import { Actor, Company, StaticGenre } from '@cinema/lib-cinema';
 import { NotifierService } from 'angular-notifier';
 import { Observable } from 'rxjs';
 import { MoviesStateProps } from '../../store/movies-initial.state';
@@ -18,6 +18,7 @@ export class NewMovieComponent implements OnInit {
   public formNewMovie!: FormGroup;
   public actorsList$: Observable<Actor[]>;
   public companiesList$: Observable<Company[]>;
+  public genreList: string[];
 
   constructor(
     private globalService: GlobalStateService,
@@ -65,6 +66,7 @@ export class NewMovieComponent implements OnInit {
   private preloadSelectsOptions() {
     this.moviesService.findAllActors();
     this.moviesService.findAllCompanies();
+    this.genreList = StaticGenre;
   }
 
   // BINDS

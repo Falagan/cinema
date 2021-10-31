@@ -1,0 +1,3 @@
+::ng-deep .double-action-button > .float-button-container {
+  right: 130px !important;
+}

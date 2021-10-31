@@ -1,1 +1,62 @@
-<p>profile-movie works!</p>
+<div class="container-fluid h-100 p-5">
+  <div class="row align-items-center">
+    <!-- Movie -->
+    <ng-container *ngIf="(loading$ | async) === false; else loading">
+      <!-- Poster -->
+      <div class="col-lg-6 offset-lg-3 col-12 text-center">
+        <p-image [src]="movie.poster" width="250" [preview]="false"></p-image>
+      </div>
+      <!-- Duration/Year/Rating -->
+      <div class="col-lg-6 offset-lg-3 col-12 text-center">
+        <div class="d-flex flex-row flex-wrap justify-content-around">
+          <div class="p-2">
+            <p>Puntuación</p>
+            <p-rating [ngModel]="movie.imdbRating" [readonly]="true" [stars]="10" [cancel]="false"
+              [style]="{color:'#673ab7'}"></p-rating>
+          </div>
+          <div class="p-2">
+            <p>Año</p>{{ movie.year}}
+          </div>
+          <div class="p-2">
+            <p>Duración</p>{{ movie.duration | timingMovie }}
+          </div>
+        </div>
+      </div>
+      <!-- Actors-->
+      <div class="col-lg-6 offset-lg-3 col-12">
+        <h4>Actores</h4>
+        <hr />
+        <span class="pr-2" *ngFor="let actor of movie.actors">
+          {{ actor }}
+        </span>
+      </div>
+      <!-- Actors-->
+      <div class="col-lg-6 offset-lg-3 col-12">
+        <h4>Estudios</h4>
+        <hr />
+        <span class="pr-2">
+          {{ movie.company }}
+        </span>
+      </div>
+      <!-- Genre-->
+      <div class="col-lg-6 offset-lg-3 col-12">
+        <h4>Géneros</h4>
+        <hr />
+        <span class="pr-2" *ngFor="let gen of movie.genre">
+          #{{ gen }}
+        </span>
+      </div>
+    </ng-container>
+  </div>
+  <!-- Loading-->
+  <ng-template #loading>
+    <div class="col-12">
+      <cinema-block-template [text]="'cineming...'"></cinema-block-template>
+    </div>
+  </ng-template>
+</div>
+<!-- Action Button -->
+<cinema-action-button [icon]="'edit'" (onClickAction)="fakeNavigateToEditMovie()">
+</cinema-action-button>
+<cinema-action-button [icon]="'arrow_back'" class="double-action-button" (onClickAction)="fakeRemoveMovie()">
+</cinema-action-button>

@@ -17,7 +17,6 @@
     "baseUrl": ".",
     "paths": {
       "@cinema/lib-cinema": ["libs/lib-cinema/src/index.ts"],
-      "@cinema/web/envs": ["apps/cinema-web/src/environments/environment"],
       "@global/lib-store": ["libs/lib-store/src/index.ts"]
     }
   },

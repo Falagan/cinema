@@ -1,4 +1,4 @@
-<mat-card class="w-100">
+<mat-card class="w-100 pointer" (dblclick)="onClickMovie()">
   <mat-card-header>
     <mat-card-title>{{ movie.title.length > 25 ? (movie.title | slice:0:25) + ' ...' : movie.title }}</mat-card-title>
     <mat-card-subtitle>

@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Inject, Injectable } from '@angular/core';
-import { CompaniesRoutes, _Company } from '@cinema/lib-cinema';
 import { Observable } from 'rxjs';
+import { CompaniesRoutes, _Company } from '../../../api/api.index';
 
 @Injectable({
   providedIn: 'root'

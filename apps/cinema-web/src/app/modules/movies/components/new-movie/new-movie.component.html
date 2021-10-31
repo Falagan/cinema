@@ -22,7 +22,7 @@
       <div class="col-lg-4 col-12 mt-lg-0 mt-2">
         <mat-form-field appearance="outline" class="w-100">
           <mat-select placeholder="Géneros" formControlName="genre" multiple>
-            <mat-option *ngFor="let genre of ['aa','bb']" [value]="genre">{{genre}}</mat-option>
+            <mat-option *ngFor="let genre of genreList" [value]="genre">{{genre}}</mat-option>
           </mat-select>
         </mat-form-field>
       </div>
@@ -77,7 +77,10 @@
     </div>
     <!-- Preview Poster -->
     <div class="col-12 text-center">
-      <p-image [src]="formNewMovie.get('poster')?.value" width="250" [preview]=true></p-image>
+      <ng-container *ngIf="formNewMovie.get('poster')?.value; else noImage">
+        <p-image [src]="formNewMovie.get('poster')?.value" width="250" [preview]=true></p-image>
+      </ng-container>
+      <ng-template #noImage>Sin Poster</ng-template>
     </div>
     <!-- Submit Button -->
     <div class="col-12 text-center mt-3">

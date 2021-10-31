@@ -3,7 +3,7 @@
     <!-- Movies list -->
     <ng-container *ngIf="(loading$ | async) === false; else loading">
       <div *ngFor="let movie of moviesList$ | async" class="col-xl-3 col-12">
-        <cinema-card-movie [movie]="movie"></cinema-card-movie>
+        <cinema-card-movie [movie]="movie" (openMovieProfile)="openMovieProfile($event)"></cinema-card-movie>
       </div>
     </ng-container>
   </div>
